@@ -37,6 +37,14 @@
             timeout-ms = <50>;
             key-positions = <0 1>;
             bindings = <&kp TAB>;
+            layers = <0>;
+        };
+
+        enter {
+            timeout-ms = <50>;
+            key-positions = <0 10>;
+            bindings = <&kp ENTER>;
+            layers = <0>;
         };
 
         Win {
@@ -47,6 +55,7 @@
         };
 
         escape {
+            timeout-ms = <50>;
             bindings = <&kp ESC>;
             key-positions = <4 14>;
         };
