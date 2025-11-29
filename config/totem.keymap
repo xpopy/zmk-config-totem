@@ -11,7 +11,6 @@
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 #include "keymap_swedish.h"
@@ -20,7 +19,6 @@
 #define NAV 1
 #define SPEC 2
 #define NUM 3
-
 
 &mt {
     quick-tap-ms = <100>;
@@ -36,7 +34,7 @@
         combo_esc {
             timeout-ms = <50>;
             key-positions = <0 1>;
-            bindings = <&kp ESC>;
+            bindings = <&kp TAB>;
         };
 
         Win {
@@ -44,6 +42,11 @@
             key-positions = <21 33>;
             slow-release;
             layers = <0>;
+        };
+
+        escape {
+            bindings = <&kp ESC>;
+            key-positions = <4 14>;
         };
     };
 
@@ -69,12 +72,11 @@
 
         base_layer {
             label = "BASE";
-
             bindings = <
-           &kp Q             &kp W  &kp E     &kp R      &kp T    &kp Y     &kp U    &kp I      &kp O      &kp P
-           &kp A             &kp S  &kp D     &kp F      &kp G    &kp H     &kp J    &kp K      &kp L      &kp DEL
-&kp LSHFT  &kp LEFT_CONTROL  &kp Z  &kp X     &kp C      &kp V    &kp B     &kp N    &kp M      &kp COMMA  &kp DOT  &kp BSPC
-                                    &kp LALT  &kp SPACE  &mo NUM  &mo SPEC  &mo NAV  &kp ENTER
+           &kp Q             &kp W  &kp E     &kp R      &kp T      &kp Y     &kp U    &kp I      &kp O      &kp P
+           &kp A             &kp S  &kp D     &kp F      &kp G      &kp H     &kp J    &kp K      &kp L      &kp DEL
+&kp LSHFT  &kp LEFT_CONTROL  &kp Z  &kp X     &kp C      &kp V      &kp B     &kp N    &kp M      &kp COMMA  &kp DOT  &kp BSPC
+                                    &kp LALT  &kp SPACE  &mo NUM    &mo SPEC  &mo NAV  &kp ENTER
             >;
         };
 
@@ -82,7 +84,7 @@
             bindings = <
         &trans  &trans          &mmv MOVE_UP    &none            &msc SCRL_UP      &trans  &kp HOME  &kp UP    &kp END    &kp PAGE_UP
         &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN
-&trans  &trans  &trans          &trans          &trans           &trans            &trans  &nond     &none     &none      &trans         &trans
+&trans  &trans  &trans          &trans          &trans           &trans            &trans  &none     &none     &none      &trans         &trans
                                 &mkp MCLK       &mkp LCLK        &mkp RCLK         &trans  &none     &trans
             >;
 
@@ -91,10 +93,10 @@
 
         function_layer {
             bindings = <
-        &kp SE_DLR   &kp SE_AT  &kp SE_PERC  &kp SE_AMPR  &kp SE_PIPE    &kp SE_PLUS  &kp SE_LCBR  &kp SE_RCBR  &kp SE_GRV   &kp SE_CIRC
-        &kp SE_EURO  &trans     &kp SE_HASH  &kp SE_SLSH  &kp SE_BSLS    &kp SE_MINS  &kp SE_LPRN  &kp SE_RPRN  &kp SE_QUOT  kp SE_TILD
-&trans  &kp SE_PND   &trans     &kp SE_EQL   &kp SE_EXLM  &kp SE_QUES    &kp SE_ASTR  &kp SE_LBRC  &kp SE_RBRC  &kp SE_DQUO  &trans  &kp BACKSPACE
-                                &trans       &trans       &trans         &none        &trans       &trans
+            &kp SE_DLR   &kp SE_AT   &kp SE_PERC  &kp SE_AMPR  &kp SE_PIPE    &kp SE_PLUS  &kp SE_LCBR  &kp SE_RCBR  &kp SE_GRV              &kp SE_CIRC
+            &kp SE_EURO  &trans      &kp SE_HASH  &kp SE_SLSH  &kp SE_BSLS    &kp SE_MINS  &kp SE_LPRN  &kp SE_RPRN  &kp SE_QUOT kp SE_TILD  &trans
+&kp SE_PND  &trans       &kp SE_EQL  &kp SE_EXLM  &kp SE_QUES  &kp SE_ASTR    &kp SE_LBRC  &kp SE_RBRC  &kp SE_DQUO  &trans                  &kp BACKSPACE  &trans
+                                     &trans       &trans       &none          &trans       &trans
             >;
 
             label = "FUN";
@@ -102,10 +104,10 @@
 
         num_layer {
             bindings = <
-        &kt F1  &kp F2  &kp F3  &kp F4   &kp F5     &kp SE_PLUS   &kp SE_7   &kp SE_8  &kp SE_9  &kp SE_EQL
-        &kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &kp SE_MINS   &kp SE_4   &kp SE_5  &kp SE_6  &kp SE_COMM
-&trans  &trans  &trans  &trans  &kp F12  &kp F11    &kp SE_ASTR   &kp SE_1   &kp SE_2  &kp SE_3  &kp DOT       &kp BACKSPACE
-                        &trans  &trans   &none      &trans        &trans     &kp SE_0
+        &kt F1  &kp F2  &kp F3  &kp F4   &kp F5     &kp SE_PLUS  &kp SE_7  &kp SE_8  &kp SE_9  &kp SE_EQL
+        &kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &kp SE_MINS  &kp SE_4  &kp SE_5  &kp SE_6  &kp SE_COMM
+&trans  &trans  &trans  &trans  &kp F12  &kp F11    &kp SE_ASTR  &kp SE_1  &kp SE_2  &kp SE_3  &kp DOT      &kp BACKSPACE
+                        &trans  &trans   &none      &trans       &trans    &kp SE_0
             >;
 
             label = "NUM";
