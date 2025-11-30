@@ -32,18 +32,18 @@
 / {
 
     behaviors {
-        angle_morph_left: angle_morph_left {
+        parangle_left: angle_morph_left {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SE_LPRN>, <&kp SE_LABK>;  // ( without shift, < with shift
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&kp SE_LPRN>, <&kp SE_LABK>; 
+            mods = <(MOD_LSFT)>;
          };
 
-        angle_morph_right: angle_morph_right {
+        parangle_right: angle_morph_right {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SE_RPRN>, <&kp SE_RABK>;  // ) without shift, > with shift
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&kp A>, <&kp B>; 
+            mods = <(MOD_LSFT)>;
          };
     };
 
@@ -119,15 +119,15 @@
             label = "NAV";
         };
 
-        function_layer {
+        special_layer {
             bindings = <
-        &kp SE_DLR   &kp SE_AT  &kp SE_PERC  &kp SE_AMPR  &kp SE_PIPE    &kp SE_PLUS  &kp SE_LCBR        &kp SE_RCBR         &kp SE_GRV   &kp SE_CIRC
-        &kp SE_EURO  &trans     &kp SE_HASH  &kp SE_SLSH  &kp SE_BSLS    &kp SE_MINS  &angle_morph_left  &angle_morph_right  &kp SE_QUOT  &kp SE_TILD
-&trans  &kp SE_PND  &trans      &kp SE_EQL   &kp SE_EXLM  &kp SE_QUES    &kp SE_ASTR  &kp SE_LBRC        &kp SE_RBRC         &kp SE_DQUO  &trans       &trans       
-                                     &trans       &trans       &none     &trans       &trans             &trans
+        &kp SE_DLR   &kp SE_AT  &kp SE_PERC  &kp SE_AMPR  &kp SE_PIPE    &kp SE_PLUS  &kp SE_LCBR     &kp SE_RCBR      &kp SE_GRV   &kp SE_CIRC
+        &kp SE_EURO  &trans     &kp SE_HASH  &kp SE_SLSH  &kp SE_BSLS    &kp SE_MINS  &parangle_left  &parangle_right  &kp SE_QUOT  &kp SE_TILD
+&trans  &kp SE_PND   &trans     &kp SE_EQL   &kp SE_EXLM  &kp SE_QUES    &kp SE_ASTR  &kp SE_LBRC     &kp SE_RBRC      &kp SE_DQUO  &trans       &trans       
+                                     &trans       &trans       &trans    &none        &trans          &trans
             >;
 
-            label = "FUN";
+            label = "SPEC";
         };
 
         num_layer {
