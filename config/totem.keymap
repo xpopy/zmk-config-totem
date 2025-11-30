@@ -32,15 +32,16 @@
 / {
 
     behaviors {
-        compatible = "zmk,behavior-mod-morph";
     
         parangle_left: angle_morph_left {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SE_LPRN>, <&kp SE_LABK>; 
             mods = <(MOD_LSFT)>;
          };
 
         parangle_right: angle_morph_right {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SE_RPRN>, <&kp SE_RABK>; 
             mods = <(MOD_LSFT)>;
