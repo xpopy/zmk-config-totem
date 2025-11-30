@@ -37,16 +37,14 @@
             #binding-cells = <0>;
             bindings = <&kp SE_LPRN>, <&kp SE_LABK>;  // ( without shift, < with shift
             mods = <(MOD_LSFT|MOD_RSFT)>;
-            masked_mods = <(MOD_LSFT|MOD_RSFT)>;  // Shift is NOT consumed
-        };
+         };
 
         angle_morph_right: angle_morph_right {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SE_RPRN>, <&kp SE_RABK>;  // ) without shift, > with shift
             mods = <(MOD_LSFT|MOD_RSFT)>;
-            masked_mods = <(MOD_LSFT|MOD_RSFT)>;  // Shift is NOT consumed
-        };
+         };
     };
 
     combos {
