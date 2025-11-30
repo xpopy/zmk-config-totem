@@ -32,17 +32,17 @@
 / {
 
     behaviors {
+        compatible = "zmk,behavior-mod-morph";
+    
         parangle_left: angle_morph_left {
-            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SE_LPRN>, <&kp SE_LABK>; 
             mods = <(MOD_LSFT)>;
          };
 
         parangle_right: angle_morph_right {
-            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp A>, <&kp B>; 
+            bindings = <&kp SE_RPRN>, <&kp SE_RABK>; 
             mods = <(MOD_LSFT)>;
          };
     };
@@ -75,23 +75,6 @@
             timeout-ms = <50>;
             bindings = <&kp ESC>;
             key-positions = <3 4>;
-        };
-    };
-
-    macros {
-        gif: gif {
-            label = "giphy";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp N2>,
-                <&macro_release>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp G &kp I &kp F>;
         };
     };
 
