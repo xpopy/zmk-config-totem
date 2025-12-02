@@ -109,9 +109,9 @@
         base_layer {
             label = "BASE";
             bindings = <
-           &kp Q             &kp W  &kp E     &kp R      &kp T        &kp Y     &kp U    &kp I      &O_morph_ODIA  &P_morph_ARNG
-           &kp A             &kp S  &kp D     &kp F      &kp G        &kp H     &kp J    &kp K      &L_morph_ADIA  &kp DEL
-&kp LSHFT  &kp LEFT_CONTROL  &kp Z  &kp X     &kp C      &kp V        &kp B     &kp N    &kp M      &kp COMMA      &kp DOT  &kp BSPC
+           &kp Q             &kp W  &kp E     &kp R      &kp T        &kp Y     &kp U    &kp I      &O         &P
+           &kp A             &kp S  &kp D     &kp F      &kp G        &kp H     &kp J    &kp K      &L         &kp DEL
+&kp LSHFT  &kp LEFT_CONTROL  &kp Z  &kp X     &kp C      &kp V        &kp B     &kp N    &kp M      &kp COMMA  &kp DOT  &kp BSPC
                                     &kp LALT  &kp SPACE  &mo NUM      &mo SPEC  &mo NAV  &kp ENTER
             >;
         };
