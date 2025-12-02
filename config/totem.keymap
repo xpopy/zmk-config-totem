@@ -46,30 +46,6 @@
             bindings = <&kp SE_RPRN>, <&kp SE_RABK>; 
             mods = <(MOD_LSFT)>;
          };
-
-        // SE_ODIA Ö
-        O_morph_ODIA: odia { 
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp O>, <&kp SE_ODIA>; 
-            mods = <(MOD_LALT)>;
-         };
-
-         // SE_ADIA Ä
-        L_morph_ADIA: adia { 
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp L>, <&kp SE_ADIA>; 
-            mods = <(MOD_LALT)>;
-         };
-
-        // SE_ARNG Å
-        P_morph_ARNG: arng { 
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp P>, <&kp SE_ARNG>; 
-            mods = <(MOD_LALT)>;
-         };
     };
 
     combos {
@@ -101,6 +77,30 @@
             bindings = <&kp ESC>;
             key-positions = <3 4>;
         };
+
+        // I + O = Å
+        arng {
+            timeout-ms = <50>;
+            bindings = <&kp SE_ARNG>;
+            key-positions = <7 8>;
+            layers = <0>;
+        };
+
+        // K + L = Ä
+        adia {
+            timeout-ms = <50>;
+            bindings = <&kp SE_ADIA>;
+            key-positions = <17 18>;
+            layers = <0>;
+        };
+
+        // M + , = Ö
+        odia {
+            timeout-ms = <50>;
+            bindings = <&kp SE_ODIA>;
+            key-positions = <28 29>;
+            layers = <0>;
+        };
     };
 
     keymap {
@@ -109,19 +109,19 @@
         base_layer {
             label = "BASE";
             bindings = <
-           &kp Q             &kp W  &kp E     &kp R      &kp T      &kp Y     &kp U    &kp I      &O_morph_ODIA  &P_morph_ARNG
-           &kp A             &kp S  &kp D     &kp F      &kp G      &kp H     &kp J    &kp K      &L_morph_ADIA  &kp DEL
-&kp LSHFT  &kp LEFT_CONTROL  &kp Z  &kp X     &kp C      &kp V      &kp B     &kp N    &kp M      &kp COMMA      &kp DOT  &kp BSPC
-                                    &kp LALT  &kp SPACE  &mo NUM    &mo SPEC  &mo NAV  &kp ENTER
+           &kp Q             &kp W  &kp E     &kp R      &kp T        &kp Y     &kp U    &kp I      &O_morph_ODIA  &P_morph_ARNG
+           &kp A             &kp S  &kp D     &kp F      &kp G        &kp H     &kp J    &kp K      &L_morph_ADIA  &kp DEL
+&kp LSHFT  &kp LEFT_CONTROL  &kp Z  &kp X     &kp C      &kp V        &kp B     &kp N    &kp M      &kp COMMA      &kp DOT  &kp BSPC
+                                    &kp LALT  &kp SPACE  &mo NUM      &mo SPEC  &mo NAV  &kp ENTER
             >;
         };
 
         navigation_layer {
             bindings = <
-        &mkp MCLK  &mkp RCLK       &mmv MOVE_UP    &mkp LCLK        &msc SCRL_UP      &trans  &kp HOME  &kp UP    &kp END    &kp PAGE_UP
-        &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN
-&trans  &trans     &trans          &trans          &trans           &trans            &trans  &none     &none     &none      &trans         &trans
-                                   &trans          &trans           &trans            &trans  &none     &trans
+        &mkp MCLK  &mkp RCLK       &mmv MOVE_UP    &mkp LCLK        &msc SCRL_UP        &trans  &kp HOME  &kp UP    &kp END    &kp PAGE_UP
+        &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN      &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN
+&trans  &trans     &trans          &trans          &trans           &trans              &trans  &none     &none     &none      &trans         &trans
+                                   &trans          &trans           &trans              &trans  &none     &trans
             >;
 
             label = "NAV";
@@ -129,10 +129,10 @@
 
         special_layer {
             bindings = <
-        &kp SE_DLR   &kp SE_AT  &kp SE_PERC  &kp SE_AMPR  &kp SE_PIPE    &kp SE_PLUS  &kp SE_LCBR     &kp SE_RCBR      &kp SE_GRV   &kp SE_CIRC
-        &kp SE_EURO  &trans     &kp SE_HASH  &kp SE_SLSH  &kp SE_BSLS    &kp SE_MINS  &parangle_left  &parangle_right  &kp SE_QUOT  &kp SE_TILD
-&trans  &kp SE_PND   &trans     &kp SE_EQL   &kp SE_EXLM  &kp SE_QUES    &kp SE_ASTR  &kp SE_LBRC     &kp SE_RBRC      &kp SE_DQUO  &trans       &trans       
-                                     &trans       &trans       &trans    &none        &trans          &trans
+        &kp SE_DLR   &kp SE_AT  &kp SE_PERC  &kp SE_AMPR  &kp SE_PIPE      &kp SE_PLUS  &kp SE_LCBR     &kp SE_RCBR      &kp SE_GRV   &kp SE_CIRC
+        &kp SE_EURO  &trans     &kp SE_HASH  &kp SE_SLSH  &kp SE_BSLS      &kp SE_MINS  &parangle_left  &parangle_right  &kp SE_QUOT  &kp SE_TILD
+&trans  &kp SE_PND   &trans     &kp SE_EQL   &kp SE_EXLM  &kp SE_QUES      &kp SE_ASTR  &kp SE_LBRC     &kp SE_RBRC      &kp SE_DQUO  &trans       &trans       
+                                     &trans       &trans       &trans      &none        &trans          &trans
             >;
 
             label = "SPEC";
@@ -140,10 +140,10 @@
 
         num_layer {
             bindings = <
-        &kt F1  &kp F2  &kp F3  &kp F4   &kp F5     &kp SE_PLUS  &kp SE_7  &kp SE_8  &kp SE_9  &kp SE_EQL
-        &kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &kp SE_MINS  &kp SE_4  &kp SE_5  &kp SE_6  &kp SE_COMM
-&trans  &trans  &trans  &trans  &kp F12  &kp F11    &kp SE_ASTR  &kp SE_1  &kp SE_2  &kp SE_3  &kp DOT      &kp BACKSPACE
-                        &trans  &trans   &none      &trans       &trans    &kp SE_0
+        &kt F1  &kp F2  &kp F3  &kp F4   &kp F5       &kp SE_PLUS  &kp SE_7  &kp SE_8  &kp SE_9  &kp SE_EQL
+        &kp F6  &kp F7  &kp F8  &kp F9   &kp F10      &kp SE_MINS  &kp SE_4  &kp SE_5  &kp SE_6  &kp SE_COMM
+&trans  &trans  &trans  &trans  &kp F12  &kp F11      &kp SE_ASTR  &kp SE_1  &kp SE_2  &kp SE_3  &kp DOT      &kp BACKSPACE
+                        &trans  &trans   &none        &trans       &trans    &kp SE_0
             >;
 
             label = "NUM";
