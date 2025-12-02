@@ -46,6 +46,30 @@
             bindings = <&kp SE_RPRN>, <&kp SE_RABK>; 
             mods = <(MOD_LSFT)>;
          };
+
+        // SE_ODIA Ö
+        O_morph_ODIA: odia { 
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp O>, <&kp SE_ODIA>; 
+            mods = <(MOD_LALT)>;
+         };
+
+         // SE_ADIA Ä
+        L_morph_ADIA: adia { 
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp L>, <&kp SE_ADIA>; 
+            mods = <(MOD_LALT)>;
+         };
+
+        // SE_ARNG Å
+        P_morph_ARNG: arng { 
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp P>, <&kp SE_ARNG>; 
+            mods = <(MOD_LALT)>;
+         };
     };
 
     combos {
@@ -85,19 +109,19 @@
         base_layer {
             label = "BASE";
             bindings = <
-           &kp Q             &kp W  &kp E     &kp R      &kp T      &kp Y     &kp U    &kp I      &kp O      &kp P
-           &kp A             &kp S  &kp D     &kp F      &kp G      &kp H     &kp J    &kp K      &kp L      &kp DEL
-&kp LSHFT  &kp LEFT_CONTROL  &kp Z  &kp X     &kp C      &kp V      &kp B     &kp N    &kp M      &kp COMMA  &kp DOT  &kp BSPC
+           &kp Q             &kp W  &kp E     &kp R      &kp T      &kp Y     &kp U    &kp I      &O_morph_ODIA  &P_morph_ARNG
+           &kp A             &kp S  &kp D     &kp F      &kp G      &kp H     &kp J    &kp K      &L_morph_ADIA  &kp DEL
+&kp LSHFT  &kp LEFT_CONTROL  &kp Z  &kp X     &kp C      &kp V      &kp B     &kp N    &kp M      &kp COMMA      &kp DOT  &kp BSPC
                                     &kp LALT  &kp SPACE  &mo NUM    &mo SPEC  &mo NAV  &kp ENTER
             >;
         };
 
         navigation_layer {
             bindings = <
-        &trans  &trans          &mmv MOVE_UP    &none            &msc SCRL_UP      &trans  &kp HOME  &kp UP    &kp END    &kp PAGE_UP
-        &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN
-&trans  &trans  &trans          &trans          &trans           &trans            &trans  &none     &none     &none      &trans         &trans
-                                &mkp MCLK       &mkp LCLK        &mkp RCLK         &trans  &none     &trans
+        &mkp MCLK  &mkp RCLK       &mmv MOVE_UP    &mkp LCLK        &msc SCRL_UP      &trans  &kp HOME  &kp UP    &kp END    &kp PAGE_UP
+        &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN    &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN
+&trans  &trans     &trans          &trans          &trans           &trans            &trans  &none     &none     &none      &trans         &trans
+                                   &trans          &trans           &trans            &trans  &none     &trans
             >;
 
             label = "NAV";
