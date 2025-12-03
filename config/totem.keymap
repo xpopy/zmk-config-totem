@@ -51,6 +51,7 @@
     combos {
         compatible = "zmk,combos";
 
+        // Q + W = Tab      
         tab {
             timeout-ms = <50>;
             key-positions = <0 1>;
@@ -58,13 +59,15 @@
             layers = <0>;
         };
 
+        // Q + Space = Enter
         enter {
             timeout-ms = <50>;
-            key-positions = <0 10>;
+            key-positions = <0 33>;
             bindings = <&kp ENTER>;
             layers = <0>;
         };
 
+        // CTRL + Space = Super
         Win {
             bindings = <&kp LEFT_WIN>;
             key-positions = <21 33>;
@@ -72,6 +75,7 @@
             layers = <0>;
         };
 
+        // R + T = esc
         escape {
             timeout-ms = <50>;
             bindings = <&kp ESC>;
