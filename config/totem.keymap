@@ -52,7 +52,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&mo NUM>, <&mo LNUM>; 
-            mods = <(MOD_LCTRL)>;
+            mods = <(MOD_LCTL)>;
          };
     };
 
