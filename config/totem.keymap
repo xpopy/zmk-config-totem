@@ -21,6 +21,7 @@
 #define NAV 1
 #define SPEC 2
 #define NUM 3
+#define LNUM 4
 
 &mt {
     quick-tap-ms = <100>;
@@ -45,6 +46,13 @@
             #binding-cells = <0>;
             bindings = <&kp SE_RPRN>, <&kp SE_RABK>; 
             mods = <(MOD_LSFT)>;
+         };
+
+        num_morph: num_morph_right_left {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mo NUM>, <&mo LNUM>; 
+            mods = <(MOD_LCTRL)>;
          };
     };
 
@@ -113,10 +121,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-           &kp Q             &kp W  &kp E     &kp R      &kp T        &kp Y     &kp U    &kp I      &kp O      &kp P
-           &kp A             &kp S  &kp D     &kp F      &kp G        &kp H     &kp J    &kp K      &kp L      &kp DEL
-&kp LSHFT  &kp LEFT_CONTROL  &kp Z  &kp X     &kp C      &kp V        &kp B     &kp N    &kp M      &kp COMMA  &kp DOT  &kp BSPC
-                                    &kp LALT  &kp SPACE  &mo NUM      &mo SPEC  &mo NAV  &kp ENTER
+           &kp Q             &kp W  &kp E     &kp R      &kp T           &kp Y     &kp U    &kp I      &kp O      &kp P
+           &kp A             &kp S  &kp D     &kp F      &kp G           &kp H     &kp J    &kp K      &kp L      &kp DEL
+&kp LSHFT  &kp LEFT_CONTROL  &kp Z  &kp X     &kp C      &kp V           &kp B     &kp N    &kp M      &kp COMMA  &kp DOT  &kp BSPC
+                                    &kp LALT  &kp SPACE  &num_morph      &mo SPEC  &mo NAV  &kp ENTER
             >;
         };
 
@@ -151,6 +159,17 @@
             >;
 
             label = "NUM";
+        };
+
+        num_layer_left {
+            bindings = <
+        &kt SE_EQL   &kp SE_7  &kp SE_8  &kp SE_9  &kp SE_PLUS      &kp SE_PLUS  &kp SE_7  &kp SE_8  &kp SE_9  &kp SE_EQL
+        &kp SE_COMM  &kp SE_4  &kp SE_5  &kp SE_6  &kp SE_MINS      &kp SE_MINS  &kp SE_4  &kp SE_5  &kp SE_6  &kp SE_COMM
+&trans  &SE_EQL      &kp SE_1  &kp SE_2  &kp SE_3  &kp SE_ASTR      &kp SE_ASTR  &kp SE_1  &kp SE_2  &kp SE_3  &kp DOT      &kp BACKSPACE
+                               &trans    &trans    &none            &trans       &trans    &kp SE_0
+            >;
+
+            label = "LNUM";
         };
     };
 };
