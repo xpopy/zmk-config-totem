@@ -68,12 +68,12 @@
         };
 
         // Q + Space = Enter
-        enter {
-            timeout-ms = <50>;
-            key-positions = <0 33>;
-            bindings = <&kp ENTER>;
-            layers = <0>;
-        };
+        // enter {
+        //    timeout-ms = <50>;
+        //    key-positions = <0 33>;
+        //    bindings = <&kp ENTER>;
+        //    layers = <0>;
+        // };
 
         // CTRL + Space = Super
         Win {
@@ -84,17 +84,17 @@
         };
 
         // R + T = esc
-        escape {
-            timeout-ms = <50>;
-            bindings = <&kp ESC>;
-            key-positions = <3 4>;
-        };
+        // escape {
+        //    timeout-ms = <50>;
+        //    bindings = <&kp ESC>;
+        //    key-positions = <3 4>;
+        // };
 
         // I + O = Å
         arng {
             timeout-ms = <50>;
             bindings = <&kp SE_ARNG>;
-            key-positions = <7 8>;
+            key-positions = <6 7 8>;
             layers = <0>;
         };
 
@@ -102,7 +102,7 @@
         adia {
             timeout-ms = <50>;
             bindings = <&kp SE_ADIA>;
-            key-positions = <17 18>;
+            key-positions = <16 17 18>;
             layers = <0>;
         };
 
@@ -110,7 +110,7 @@
         odia {
             timeout-ms = <50>;
             bindings = <&kp SE_ODIA>;
-            key-positions = <28 29>;
+            key-positions = <27 28 29>;
             layers = <0>;
         };
     };
@@ -152,10 +152,10 @@
 
         num_layer {
             bindings = <
-        &kt F1  &kp F2  &kp F3  &kp F4   &kp F5       &kp SE_PLUS  &kp SE_7  &kp SE_8  &kp SE_9  &kp SE_EQL
-        &kp F6  &kp F7  &kp F8  &kp F9   &kp F10      &kp SE_MINS  &kp SE_4  &kp SE_5  &kp SE_6  &kp SE_COMM
-&trans  &trans  &trans  &trans  &kp F12  &kp F11      &kp SE_ASTR  &kp SE_1  &kp SE_2  &kp SE_3  &kp DOT      &kp BACKSPACE
-                        &trans  &trans   &none        &trans       &trans    &kp SE_0
+           &kt F1   &kp F2  &kp F3  &kp F4   &kp F5       &kp SE_PLUS  &kp SE_7  &kp SE_8  &kp SE_9  &kp SE_EQL
+           &kp F6   &kp F7  &kp F8  &kp F9   &kp F10      &kp SE_MINS  &kp SE_4  &kp SE_5  &kp SE_6  &kp SE_COMM
+&kp ENTER  &kp ESC  &trans  &trans  &kp F12  &kp F11      &kp SE_ASTR  &kp SE_1  &kp SE_2  &kp SE_3  &kp DOT      &kp BACKSPACE
+                            &trans  &trans   &none        &trans       &trans    &kp SE_0
             >;
 
             label = "NUM";
